@@ -3,7 +3,7 @@ Author: Samir Ahmed
 Date: June 17th 2025
 Program: read and shuffle cards pulled from the cards.txt file then deal the cards and check for pairs
 */
-package cardGame;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -20,7 +20,7 @@ public class CardGame {
 
 		Scanner input = null;
 		try {
-			input = new Scanner(new File("cards.txt")); //read the deck
+			input = new Scanner(new File("cardGame/cards.txt")); //read the deck
 		} catch (FileNotFoundException e) {
 			// error handeling 
 			System.out.println("error");
@@ -62,7 +62,7 @@ public class CardGame {
 			deckOfCards.add(c);
 		}
 	}
-
+	
 	//check for 2 of a kind in the players hand
 	public static boolean checkFor2Kind() {
 
