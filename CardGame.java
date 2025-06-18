@@ -1,3 +1,8 @@
+/*
+Author: Samir Ahmed
+Date: June 17th 2025
+Program: read and shuffle cards pulled from the cards.txt file then deal the cards and check for pairs
+*/
 package cardGame;
 
 import java.io.File;
@@ -6,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CardGame {
-
+	//These Array list store the deck and the players card respectively 
 	private static ArrayList<Card> deckOfCards = new ArrayList<Card>();
 	private static ArrayList<Card> playerCards = new ArrayList<Card>();
 
@@ -15,19 +20,19 @@ public class CardGame {
 
 		Scanner input = null;
 		try {
-			input = new Scanner(new File("cards.txt"));
+			input = new Scanner(new File("cards.txt")); //read the deck
 		} catch (FileNotFoundException e) {
-			// error
+			// error handeling 
 			System.out.println("error");
 			e.printStackTrace();
 		}
-
+		//read each line from cards.txt and build Card objeccts
 		while(input.hasNext()) {
 			String[] fields  = input.nextLine().split(",");
 			//	public Card(String cardSuit, String cardName, int cardValue, String cardPicture) {
 			Card newCard = new Card(fields[0], fields[1].trim(),
 					Integer.parseInt(fields[2].trim()), fields[3]);
-			deckOfCards.add(newCard);	
+			deckOfCards.add(newCard);	//insert card to deck
 		}
 
 		shuffle();
@@ -35,15 +40,14 @@ public class CardGame {
 		//for(Card c: deckOfCards)
 			//System.out.println(c);
 
-		//deal the player 5 cards
+		//deal the player 5 cards-ISSUE currently only deals 4 cards not 5
 		for(int i = 0; i < 4; i++) {
 			playerCards.add(deckOfCards.remove(i));
 		}
-		
+		//print player hands
 		System.out.println("players cards");
 		for(Card c: playerCards)
 			System.out.println(c);
-
 		System.out.println("pairs is " + checkFor2Kind());
 
 	}//end main
