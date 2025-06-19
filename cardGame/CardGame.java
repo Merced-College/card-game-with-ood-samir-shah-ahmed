@@ -1,7 +1,16 @@
 /*
 Author: Samir Ahmed
-Date: June 17th 2025
-Program: read and shuffle cards pulled from the cards.txt file then deal the cards and check for pairs
+Date: June 19th 2025
+Program: Card Game Implementation featuring:
+- Card deck loading from file
+- ASCII art card display in terminal
+- Shuffle functionality
+- Pair checking
+- Visual card representation
+
+This program reads a deck of cards from cards.txt, shuffles them,
+deals a hand to the player, and checks for pairs while displaying
+the cards with ASCII art in the terminal.
 */
 
 
@@ -40,15 +49,16 @@ public class CardGame {
 		//for(Card c: deckOfCards)
 			//System.out.println(c);
 
-		//deal the player 5 cards-ISSUE currently only deals 4 cards not 5
-		for(int i = 0; i < 4; i++) {
-			playerCards.add(deckOfCards.remove(i));
+		//deal the player 5 cards
+		for(int i = 0; i < 5; i++) {
+			playerCards.add(deckOfCards.remove(0));
 		}
-		//print player hands
-		System.out.println("players cards");
-		for(Card c: playerCards)
-			System.out.println(c);
-		System.out.println("pairs is " + checkFor2Kind());
+		//print player hands with ASCII art display
+		System.out.println("\nYour hand:");
+		CardDisplay.clearScreen();
+		CardDisplay.displayCards(playerCards);
+		
+		System.out.println("\nDo you have a pair? " + (checkFor2Kind() ? "Yes!" : "No"));
 
 	}//end main
 
