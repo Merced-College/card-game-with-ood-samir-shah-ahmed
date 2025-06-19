@@ -12,8 +12,12 @@ cards.txt is the provided deck of cards
 
 ## Description
 
-This project is a simple card game and I added a few new features to make the game more intreseting
+This project is a simple card game and I added a few new features to make the game more interesting and complex(I had fun thinking about and making this). I have never used copilot before and its really cool to see how well it can debug and help with writing code along with guiding me in the right direction for writing code thanks for higlighting it in the video!.
 
 
 ## New Features
 Added: Ascii visualizer for the cards in terminal on run to display user hand
+Added: Player 2 
+Added: Competition feature, the 2 players compete when one of the players has a pair they win, if neither or both have a pair they compete for the highest value card. If they are both matched evenly (I had to adjust the probability of this happening since it occured
+way too often on the first try) then the game ties. 
+Added: fun fact generator
